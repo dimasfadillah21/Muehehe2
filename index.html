@@ -147,18 +147,19 @@ Ketuk untuk melanjutkan...
 
 </div>
 <script>
-const id = new URLSearchParams(window.location.search).get("id");
+const id = parseInt(new URLSearchParams(location.search).get("id") || "1");
 
-const video = {
-  "1": "https://cdn2.aceimg.com/qq6qUPdJu.mp4",
-  "2": "https://cdn2.aceimg.com/iNKik8JqD.mp4",
-  "3": "https://cdn2.aceimg.com/GFgC3uNwg.mp4",
-  "4": "https://cdn2.aceimg.com/Pwr8ymoQN.mp4",
-  "5": "https://cdn2.aceimg.com/AO7cBTNSw.mp4"
-};
+fetch("videos.txt")
+  .then(res => res.text())
+  .then(text => {
+    const videos = text
+      .split("\n")
+      .map(v => v.trim())
+      .filter(v => v);
 
-document.getElementById("btn").href =
-  video[id] || video["1"];
+    document.getElementById("btn").href =
+      videos[id - 1] || videos[0];
+  });
 </script>
 
 </body>
