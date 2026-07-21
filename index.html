@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Siap Dibuka</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(180deg,#08111f,#04070d);
+overflow:hidden;
+}
+
+body::before{
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:#1b5fff;
+filter:blur(250px);
+opacity:.08;
+top:-250px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.card{
+position:relative;
+width:360px;
+max-width:92%;
+background:#111827;
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+padding:40px 28px;
+text-align:center;
+box-shadow:0 0 50px rgba(0,0,0,.4);
+}
+
+.play{
+width:110px;
+height:110px;
+margin:auto;
+border-radius:50%;
+background:linear-gradient(135deg,#4d8cff,#0068ff);
+display:flex;
+justify-content:center;
+align-items:center;
+box-shadow:0 0 35px rgba(0,102,255,.6);
+}
+
+.play svg{
+width:40px;
+fill:#fff;
+margin-left:6px;
+}
+
+.badge{
+display:inline-block;
+margin-top:22px;
+padding:10px 22px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.15);
+background:#1c2230;
+color:#d9d9d9;
+font-size:14px;
+letter-spacing:3px;
+}
+
+h1{
+margin-top:24px;
+color:#fff;
+font-size:36px;
+font-weight:700;
+}
+
+p{
+margin-top:18px;
+color:#aeb6c5;
+font-size:18px;
+line-height:1.7;
+}
+
+.button{
+display:block;
+margin-top:35px;
+padding:18px;
+background:linear-gradient(90deg,#0066ff,#4d8cff);
+color:white;
+text-decoration:none;
+font-size:24px;
+font-weight:bold;
+border-radius:20px;
+box-shadow:0 0 25px rgba(0,102,255,.45);
+transition:.2s;
+}
+
+.button:hover{
+transform:translateY(-2px);
+}
+
+.small{
+margin-top:18px;
+font-size:15px;
+color:#7f8795;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<div class="play">
+<svg viewBox="0 0 24 24">
+<path d="M8 5v14l11-7z"/>
+</svg>
+</div>
+
+<div class="badge">
+SIAP DIBUKA
+</div>
+
+<h1>Video siap dibuka</h1>
+
+<p>
+Ketuk tombol di bawah untuk membuka halaman video.
+</p>
+
+<a id="btn" class="button" href="#">
+▶ Tonton Sekarang
+</a>
+
+<div class="small">
+Ketuk untuk melanjutkan...
+</div>
+
+</div>
+<script>
+const id = new URLSearchParams(window.location.search).get("id");
+
+const video = {
+  "1": "https://cdn2.aceimg.com/qq6qUPdJu.mp4",
+  "2": "https://cdn2.aceimg.com/iNKik8JqD.mp4",
+  "3": "https://cdn2.aceimg.com/GFgC3uNwg.mp4",
+  "4": "https://cdn2.aceimg.com/Pwr8ymoQN.mp4",
+  "5": "https://cdn2.aceimg.com/AO7cBTNSw.mp4"
+};
+
+document.getElementById("btn").href =
+  video[id] || video["1"];
+</script>
+
+</body>
+</html>
